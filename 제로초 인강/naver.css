@@ -11,11 +11,18 @@ div#header-search>h1{
     display: inline-block;
 
 }
-#header-search h2{
-    display: none;
-}
+
 #header-search fieldset{
     width: 520px;
     display: inline-block;
 
+}
+
+.blind{
+    position:absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    width: -1px;
+    height: -1px;
 }
