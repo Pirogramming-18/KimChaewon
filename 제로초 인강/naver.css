@@ -6,15 +6,37 @@
     width: 1080px;
 }
 
-div#header-search>h1{
-    width: 280px;
+div#header-search h1{
+    width: 198px;
+    height: 52px;
     display: inline-block;
+    /*background-image: url(./sp_search.png);
+    background-position: -4px -12px;
+    background-repeat: no-repeat;*/
+    background: url(./sp_search.png) -4px -7px no-repeat;
+
 
 }
+#header-search span{
+    display: none;
+}
 
+#header-search a{
+    text-decoration: none;
+}
 #header-search fieldset{
-    width: 520px;
+    width: 521px;
+    height: 49px;
     display: inline-block;
+    margin-left: 20px;
+    /*padding-top: 12px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+    padding-right: 0px;
+    한방에 쓰기 위 오른쪽 아래 왼쪽 순서*/
+    padding: 12px 0px 12px 10px;
+    border: 2px solid #03cf5d;
+
 
 }
 
