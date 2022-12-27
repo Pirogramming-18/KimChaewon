@@ -1,6 +1,9 @@
 /* margin: 0 auto; width: 1080px;*/
 
 /*선택자 selector*/
+*{
+    box-sizing: border-box;
+}
 #header-center{
     margin: 0 auto;
     width: 1080px;
@@ -14,6 +17,8 @@ div#header-search h1{
     background-position: -4px -12px;
     background-repeat: no-repeat;*/
     background: url(./sp_search.png) -4px -7px no-repeat;
+    vertical-align: middle;
+
 
 
 }
@@ -34,9 +39,9 @@ div#header-search h1{
     padding-left: 10px;
     padding-right: 0px;
     한방에 쓰기 위 오른쪽 아래 왼쪽 순서*/
-    padding: 12px 0px 12px 10px;
+    padding: 12px 0 12px 10px;
     border: 2px solid #03cf5d;
-
+    vertical-align: middle;
 
 }
 
@@ -48,3 +53,11 @@ div#header-search h1{
     width: -1px;
     height: -1px;
 }
+
+#header-search fieldset input{
+    border: none;
+    padding: 0;
+    outline: none;
+
+}
+
