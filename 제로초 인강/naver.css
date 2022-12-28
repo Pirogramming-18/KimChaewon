@@ -4,6 +4,22 @@
 *{
     box-sizing: border-box;
 }
+
+#fixed{
+    position: fixed;
+    top : 50px;
+    left: 50px;
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 1px solid black;
+    border-radius: 50px;
+
+}
+html, body{
+    margin:0;
+    padding:0;
+}
 #header-center{
     margin: 0 auto;
     width: 1080px;
