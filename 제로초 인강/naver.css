@@ -48,8 +48,7 @@ header{
 
 #header-top{
     float: right;
-    margin-top: 9px;
-    height: 21px;
+    margin-top: 8px;
 }
 
 #header-top span{
@@ -61,7 +60,7 @@ header{
 
 #header-search {
     clear:both;
-    padding-top: 20px;
+    padding-top: 12px;
 }
 
 #header-search a{
@@ -123,6 +122,28 @@ header{
     top: -2px;
 }
 
+#search-keyboard {
+    background-image: url(./sp_search.png);
+    background-repeat: no-repeat;
+    background-position: -33px -60px;
+    width: 19px;
+    height: 11px;
+    display: inline-block;
+    margin: 0 6px;
+    vertical-align: middle;
+}
+
+#search-history {
+    background-image: url(./sp_search.png);
+    background-repeat: no-repeat;
+    background-position: -87px -60px;
+    width: 9px;
+    height: 4px;
+    display: inline-block;
+    margin: 0 6px;
+    vertical-align: middle;
+}
+
 #search-image {
     background-image: url(./sp_search.png);
     background-position: -3px -60px;
@@ -159,7 +180,7 @@ nav li:first-child span:first-child {
 nav li span:first-child {
     height: 16px;
     display: inline-block;
-    background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_nav.png);
+    background-image: url(sp_nav.png);
     background-repeat: no-repeat;
     margin-left: 14px;
 }
@@ -189,6 +210,55 @@ nav li:nth-child(6) span:first-child {
     background-position: -70px -285px;
 }
 
+nav li:nth-child(7) span:first-child {
+    width: 35px;
+    background-position: -125px -130px;
+}
+nav li:nth-child(8) span:first-child {
+    width: 26px;
+    background-position: -279px -208px;
+}
+
+nav li:nth-child(9) span:first-child {
+    width: 26px;
+    background-position: -128px -104px;
+}
+
+nav li:nth-child(10) span:first-child {
+    width: 26px;
+    background-position: -36px -259px;
+}
+
+nav li:nth-child(11) span:first-child {
+    width: 39px;
+    background-position: -151px -156px;
+}
+
+nav li:nth-child(12) span:first-child {
+    width: 26px;
+    background-position: -279px -130px;
+}
+
+nav li:nth-child(13) span:first-child {
+    width: 26px;
+    background-position: -234px -233px;
+}
+
+nav li:nth-child(14) span:first-child {
+    width: 26px;
+    background-position: -72px -259px;
+}
+
+nav li:nth-child(15) span:first-child {
+    width: 13px;
+    background-position: -140px -78px;
+}
+
+nav li:nth-child(16) span:first-child {
+    width: 26px;
+    background-position: -279px 0;
+}
+
 .nav-divider{
     display: inline-block;
     margin: 18px 16px 0;
@@ -206,4 +276,8 @@ nav li:nth-child(6) span:first-child {
     margin-top: -9px;
     color: #00ab33;
     font-size: 16px;
+}
+
+main {
+    background-color: #f2f4f7;
 }
