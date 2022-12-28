@@ -21,6 +21,7 @@
 html, body{
     margin:0;
     padding:0;
+    font-family: Dotum,'돋움',Helvetica,"Apple SD Gothic Neo",sans-serif;
 }
 
 .blind{
@@ -41,8 +42,14 @@ html, body{
     width: 1080px;
 }
 
+header{
+    height: 170px;
+}
+
 #header-top{
     float: right;
+    margin-top: 9px;
+    height: 21px;
 }
 
 #header-top span{
@@ -54,6 +61,7 @@ html, body{
 
 #header-search {
     clear:both;
+    padding-top: 20px;
 }
 
 #header-search a{
@@ -70,7 +78,8 @@ html, body{
     background: url(./sp_search.png) -4px -7px no-repeat;
     vertical-align: middle;
     position: relative;
-    top: -3px;
+    top: -5px;
+    left: 1px;
 }
 
 #header-search span{
@@ -121,12 +130,19 @@ html, body{
     width: 21px;
     height: 21px;
     display: inline-block;
-    margin: 14px;
+    margin: 10px;
+}
+
+nav{
+    display: inline-block;
+    height: 46px;
+    border-top: 1px solid #f1f3f6;
+    border-bottom: 1px solid #d1d8e4;
 }
 
 nav ul {
     margin: 0;
-    padding: 0;
+    padding: 16px 0 0 4px;
     list-style: none;
 }
 
@@ -173,3 +189,21 @@ nav li:nth-child(6) span:first-child {
     background-position: -70px -285px;
 }
 
+.nav-divider{
+    display: inline-block;
+    margin: 18px 16px 0;
+    width: 14px;
+    background: #ebeef3;
+}
+
+#search-ranking {
+    position: absolute;
+    top: 16px;
+    right: 100px;
+}
+
+#rank-number {
+    margin-top: -9px;
+    color: #00ab33;
+    font-size: 16px;
+}
