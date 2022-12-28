@@ -155,7 +155,6 @@ header{
 }
 
 nav{
-    display: inline-block;
     height: 46px;
     border-top: 1px solid #f1f3f6;
     border-bottom: 1px solid #d1d8e4;
@@ -280,4 +279,6 @@ nav li:nth-child(16) span:first-child {
 
 main {
     background-color: #f2f4f7;
+    display: inline-block;
+    width: 100%;
 }
