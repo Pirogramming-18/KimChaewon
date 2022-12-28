@@ -18,6 +18,8 @@ div#header-search h1{
     background-repeat: no-repeat;*/
     background: url(./sp_search.png) -4px -7px no-repeat;
     vertical-align: middle;
+    position: relative;
+    top: -3px;
 
 
 
@@ -42,6 +44,7 @@ div#header-search h1{
     padding: 12px 0 12px 10px;
     border: 2px solid #03cf5d;
     vertical-align: middle;
+    position: relative;
 
 }
 
@@ -67,6 +70,9 @@ div#header-search h1{
     border: none;
     padding: 0;
     background-color: #03cf5d;
+    position: absolute  ;
+    right: -2px;
+    top: -2px;
 }
 
 #search-image {
