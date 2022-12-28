@@ -396,6 +396,14 @@ main {
     vertical-align: top; 
 }
 
+#main-ytn h3, #main-newsstand h3{
+    font-size: 14px;
+    font-family: NanumSquare,Dotum,"돋움",Helvetica,AppleSDGothicNeo,sans-serif;
+    padding-top: 15px;
+    padding-left: 15px;
+    vertical-align: top;
+}
+
 #main-ytn{
     display: inline-block;
     width: 740px;
@@ -487,6 +495,7 @@ main {
 #main-shopping iframe{
     width: 100%;
     height: 100%;
+    border:none;
 }
 
 #main-third-block,
