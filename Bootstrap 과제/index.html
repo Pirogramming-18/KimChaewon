@@ -16,7 +16,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-black fixed-top">
             <div class="container-fluid">
-                <a class="navbar-brand nav-link active text-white"   aria-current="page" href="#">Pirogramming</a>
+                <a class="navbar-brand nav-link active text-white" aria-current="page" href="#">Pirogramming</a>
                 <button class="navbar-toggler border-secondary" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -28,10 +28,11 @@
                             <a class="nav-link active" aria-current="page" href="#">Son-Byenog-woo</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" aria-current="Intro bg-secondary" href="#">Intro</a>
+                            <a class="nav-link text-white" href="#">Intro</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-white" aria-current="page" href="#">Hightlight</a>
+                            <a class="nav-link active text-white" aria-current="Intro bg-secondary"
+                                href="#">Hightlight</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-white" href="#">Gallary</a>
@@ -42,6 +43,37 @@
                     </ul>
                     <form class="d-flex" role="search">
                         <button class="btn btn-outline-success" type="submit">About</button>
+                        <!-- Button trigger modal -->
+                        <button type="submit" class="btn btn-outline-success" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            About
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                            aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h1 class="modal-title fs-5" id="exampleModalLabel">Nice-job!</h1>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        ...
+                                    </div>
+                                    <div class="modal-footer">
+
+                                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"
+                                            aria-label="Close" style="width:100%">ok</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                     </form>
                 </div>
             </div>
@@ -118,19 +150,25 @@
             </div>
             <div class="row" style="justify-content: center;">
                 <div class="col-md-3 col-sm-6 col-10 text-center">
-                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/52/250/180" alt="" style="height: 100%; width: 100%;"></div>
-                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/100/250/180" alt="" style="height: 100%; width: 100%;"></div>
+                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/52/250/180" alt=""
+                            style="height: 100%; width: 100%;"></div>
+                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/100/250/180" alt=""
+                            style="height: 100%; width: 100%;"></div>
                 </div>
 
                 <div class="col-md-3 col-sm-6 col-10 text-center">
-                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/43/250/180" alt="" style="height: 100%; width: 100%;"></div>
-                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/152/250/180" alt="" style="height: 100%; width: 100%;"></div>
+                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/43/250/180" alt=""
+                            style="height: 100%; width: 100%;"></div>
+                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/152/250/180" alt=""
+                            style="height: 100%; width: 100%;"></div>
                 </div>
 
                 <div class="col-md-3 col-sm-6 col-10 text-center">
-                <!-- <div class="col-md-3 col-sm-10  text-center"> -->
-                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/62/250/180" alt="" style="height: 100%; width: 100%;"></div>
-                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/156/250/180" alt="" style="height: 100%; width: 100%;"></div>
+                    <!-- <div class="col-md-3 col-sm-10  text-center"> -->
+                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/62/250/180" alt=""
+                            style="height: 100%; width: 100%;"></div>
+                    <div class="content_photo pb-5"><img src="https://picsum.photos/seed/156/250/180" alt=""
+                            style="height: 100%; width: 100%;"></div>
                 </div>
             </div>
         </div>
