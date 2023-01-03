@@ -1,0 +1,87 @@
+.tree {
+  --color-main: darkseagreen;
+  --color-button: #f6f6f6;
+}
+
+.main {
+  width: 97vw;
+  height: 97vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+}
+
+.title i {
+  font-size: 30px;
+  margin-right: 10px;
+}
+
+.stopwatch {
+  width: 430px;
+  height: 200px;
+  background-color: darkseagreen;
+  border-radius: 30px;
+  box-shadow: 4px 4px 10px -4px gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.screen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  width: 80%;
+  background: #f6f6f6;
+  border-radius: 30px;
+  margin-bottom: 1.5rem;
+}
+
+.buttons {
+  display: flex;
+  width: 100%;
+  height: 20%;
+  justify-content: center;
+}
+
+.start,
+.stop,
+.reset {
+  width: 10%;
+  border-radius: 15px;
+  border-width: 0;
+  margin: 0 15px;
+  box-shadow: 4px 4px 10px -4px gray;
+}
+
+.timetable-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 430px;
+  height: 50px;
+  background: darkseagreen;
+  margin-top: 2rem;
+  border-radius: 15px 10px 0 0;
+}
+
+.timetable-top input {
+  margin-left: 30px;
+}
+
+.timetable-top i {
+  margin-right: 30px;
+  font-size: 25px;
+}
+
+.timetable-top i:hover {
+  color: rgb(207, 3, 3);
+}

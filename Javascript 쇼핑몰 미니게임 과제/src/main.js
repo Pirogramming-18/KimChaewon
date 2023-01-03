@@ -6,42 +6,42 @@ function loadItems() {
 
 function displayItems(items) {
   const container = document.querySelector(".items");
-
   container.innerHTML = items.map((item) => creatHTMLString(item)).join("");
 }
 
 function creatHTMLString(item) {
   return `
-  <li class="item">
-      <img src=${item.image} alt=${item.type} class="item__thumbnail" />
-      <span class="item__description">${item.gender}, ${item.size}</span>
-  </li>
-  `;
+      <li class="item">
+          <img src=${item.image} alt=${item.type} class="item__thumbnail" />
+          <span class="item__description">${item.gender}, ${item.size}</span>
+      </li>
+      `;
 }
 
-function onButtonClick(e, items) {
-  const dataset = e.target.dataset;
+function onButtonClick(event, items) {
+  const dataset = event.target.dataset;
   const key = dataset.key;
   const value = dataset.value;
-  console.log(dataset);
+
   if (key == null || value == null) {
     return;
   }
-
-  displayItems(items.filter((item) => item[key] == value));
+  const filtered = items.filter((item) => item[key] == value);
+  displayItems(filtered);
 }
 
-function setEventListeners(items) {
+function setEventListener(items) {
   const logo = document.querySelector(".logo");
   const buttons = document.querySelector(".buttons");
-  logo.addEventListener("click", () => displayItems(items));
-  console.log(buttons);
-  buttons.addEventListener("click", (e) => onButtonClick(e, items));
+  logo.addEventLisener("click", () => displayItems(items));
+  buttons.addEventLisener("click", (event) => onButtonClick(event, items));
 }
+
+//main
 
 loadItems()
   .then((items) => {
     displayItems(items);
-    setEventListeners(items);
+    setEventListener(items);
   })
   .catch(console.log);
