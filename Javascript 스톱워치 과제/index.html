@@ -20,7 +20,7 @@
         </div>
         <div class="stopwatch">
             <div class="screen">
-                <span id="minutes">00</span>:<span id="seconds">00</span> :<span id="temMillis">00</span>
+                <span id="seconds">00</span> : <span id="temMillis">00</span>
             </div>
             <div class="buttons">
                 <button id="start">start</button>
@@ -30,9 +30,12 @@
         </div>
         <div class="timetable">
             <div class="timetable-top">
-                <input type="radio" name="selectAll" value="all">
+                <div class="iconeA">
+                    <input type="checkbox" id="checkall">
+                    <!-- <i class="fa-regular fa-circle"></i>기본 -->
+                </div>
                 <h2>구간 기록</h2>
-                <i class="fa-solid fa-trash"></i>
+                <i class="fa-solid fa-trash" id="delete"></i>
             </div>
             <div class="timetable-body">
                 <ul class="record-list"></ul>

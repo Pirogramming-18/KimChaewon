@@ -1,15 +1,15 @@
-let minutes = 0;
 let seconds = 0;
 let temMillis = 0;
 
 //요소 선택
 const appendTemMillis = document.getElementById("temMillis");
 const appendSeconds = document.getElementById("seconds");
-const appendMinutes = document.getElementById("minutes");
 const btStart = document.getElementById("start");
 const btReset = document.getElementById("reset");
 const btStop = document.getElementById("stop");
 const recordlist = document.querySelector(".record-list");
+const btClickAll = document.getElementById("checkall");
+const btDelete = document.getElementById("delete");
 
 let intervalId;
 
@@ -28,12 +28,6 @@ function operateTimer() {
     temMillis = 0;
     appendTemMillis.textContent = "00";
   }
-  if (seconds > 59) {
-    minutes++;
-    appendMinutes.textContent = minutes > 9 ? minutes : "0" + minutes;
-    seconds = 0;
-    appendSeconds.textContent = "00";
-  }
 }
 
 btStop.onclick = function () {
@@ -44,23 +38,76 @@ btStop.onclick = function () {
 btReset.onclick = function () {
   clearInterval(intervalId);
   temMillis = 0;
-  minutes = 0;
   seconds = 0;
-  appendMinutes.textContent = "00";
   appendSeconds.textContent = "00";
   appendTemMillis.textContent = "00";
 };
 
 function HandleRecord(event) {
-  if (minutes == 0 && seconds == 0 && temMillis == 00) {
+  if (seconds == 0 && temMillis == 00) {
     event.preventDefault(); //시간이 있지 않을때는 이벤트 막기
   } else {
     const li = document.createElement("li");
+    li.className = "item-list";
     const span = document.createElement("span");
-    span.innerText = `${minutes < 10 ? "0" + minutes : minutes}:${
-      seconds < 10 ? "0" + seconds : seconds
-    }:${temMillis < 10 ? "0" + temMillis : temMillis}`;
+    span.className = "span";
+    span.innerHTML = `
+    <input type="checkbox" name="bt_each"/>
+    ${seconds < 10 ? "0" + seconds : seconds}:${
+      temMillis < 10 ? "0" + temMillis : temMillis
+    }`;
+
     li.appendChild(span);
+
     recordlist.prepend(li); //가장 최신의 레코드를 위로 출력하기 위해 위로삽입
+  }
+}
+
+// btIconA.onclick = function () {
+//   if (btIconA.innerHTML == "<i class='fa-regular fa-circle-check'></i>") {
+//     btIconA.innerHTML = "<i class='fa-regular fa-circle'></i>";
+//   } else {
+//     btIconA.innerHTML = "<i class='fa-regular fa-circle-check'></i>";
+//   }
+// };
+
+let each_list = document.getElementsByName("bt_each");
+btClickAll.addEventListener("click", (e) => {
+  checkAll(each_list);
+});
+
+function checkAll() {
+  let allcheck = btClickAll.checked;
+  for (let i = 0; i < each_list.length; i++) {
+    each_list[i].checked = allcheck;
+  }
+}
+
+btDelete.onclick = function () {
+  removelist = [];
+  deleteItem(each_list);
+};
+
+const p_list = document.getElementsByClassName("span");
+
+function deleteItem() {
+  console.log(each_list.length);
+  for (let j = 0; j < each_list.length; j++) {
+    if (each_list[j].checked) {
+      // let a = each_list[j].parentElement;
+      let a = j;
+      removelist.push(a);
+      // console.log(removelist);
+      // a.parentElement.remove();
+      // console.log(each_list[j].parentElement);
+
+      // each_list[j].parentElement.remove();
+    }
+  }
+  for (let k = 0; k < removelist.length; k++) {
+    let temp = each_list[removelist[k]].parentElement;
+    console.log(temp);
+    temp.parentElement.remove();
+    removelist.pop(removelist[k]);
   }
 }
