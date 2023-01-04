@@ -64,6 +64,7 @@
   border-width: 0;
   margin: 0 15px;
   box-shadow: 4px 4px 10px -4px gray;
+  cursor: pointer;
 }
 
 .timetable-top {
@@ -79,6 +80,7 @@
 
 .timetable-top input {
   margin-left: 30px;
+  cursor: pointer;
 }
 
 .timetable-top i {
@@ -88,4 +90,9 @@
 
 .timetable-top i:hover {
   color: rgb(207, 3, 3);
+  cursor: pointer;
+}
+
+.record-list {
+  list-style: none;
 }
