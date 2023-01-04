@@ -63,14 +63,6 @@ function HandleRecord(event) {
   }
 }
 
-// btIconA.onclick = function () {
-//   if (btIconA.innerHTML == "<i class='fa-regular fa-circle-check'></i>") {
-//     btIconA.innerHTML = "<i class='fa-regular fa-circle'></i>";
-//   } else {
-//     btIconA.innerHTML = "<i class='fa-regular fa-circle-check'></i>";
-//   }
-// };
-
 let each_list = document.getElementsByName("bt_each");
 btClickAll.addEventListener("click", (e) => {
   checkAll(each_list);
@@ -91,21 +83,27 @@ btDelete.onclick = function () {
 const p_list = document.getElementsByClassName("span");
 
 function deleteItem() {
+  let each_list = document.getElementsByName("bt_each");
   console.log(each_list.length);
+  console.log(each_list);
   for (let j = 0; j < each_list.length; j++) {
     if (each_list[j].checked) {
       // let a = each_list[j].parentElement;
-      let a = j;
-      removelist.push(a);
-      // console.log(removelist);
+      removelist.push(j);
+      console.log(j);
       // a.parentElement.remove();
       // console.log(each_list[j].parentElement);
 
       // each_list[j].parentElement.remove();
+    } else {
+      continue;
     }
   }
+  console.log(removelist.length);
+
   for (let k = 0; k < removelist.length; k++) {
-    let temp = each_list[removelist[k]].parentElement;
+    let temp = 0;
+    temp = each_list[removelist[k]].parentElement;
     console.log(temp);
     temp.parentElement.remove();
     removelist.pop(removelist[k]);
