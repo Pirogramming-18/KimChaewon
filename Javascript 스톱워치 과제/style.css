@@ -45,6 +45,10 @@
   margin-bottom: 1.5rem;
 }
 
+.screen span {
+  font-size: 35px;
+}
+
 .buttons {
   display: flex;
   width: 100%;
@@ -52,9 +56,9 @@
   justify-content: center;
 }
 
-.start,
-.stop,
-.reset {
+#start,
+#stop,
+#reset {
   width: 10%;
   border-radius: 15px;
   border-width: 0;
