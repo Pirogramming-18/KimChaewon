@@ -10,12 +10,28 @@ def Menu1(student) :
 ##############  menu 2
 def Menu2() :
     #학점 부여 하는 코딩
-
+    for i in range(len(studentslist)):
+        avg=(studentslist[i][1]+studentslist[i][2])/2
+        if avg>=90:
+            studentslist[i].append("A")
+        elif avg>=80:
+            studentslist[i].append("B")
+        elif avg>=80:
+            studentslist[i].append("c")
+        else:
+            studentslist[i].append("D") 
+        avg=0   
 
 ##############  menu 3
 def Menu3() :
-
     #출력 코딩
+    print("-----------------------------------")
+    print("name\tmid\tfinal\tgrade")
+    print("-----------------------------------")
+
+    for student in studentslist:
+            print("{0}\t{1}\t{2}\t{3}".format(student[0],student[1],student[2],student[3]))
+
 
 ##############  menu 4
 def Menu4():
@@ -57,13 +73,32 @@ while True :
             Menu1(student)
 
     elif choice == "2" :
-        #예외사항 처리(저장된 학생 정보의 유무)
-        #예외사항이 아닌 경우 2번 함수 호출
-        #"Grading to all students." 출력
-
+        try:
+            if len(studentslist)==0:
+                raise IndexError
+        except IndexError:
+                print("No student data!") 
+        else:
+            Menu2()
+            print("Grading to all students")
+            
     elif choice == "3" :
         #예외사항 처리(저장된 학생 정보의 유무, 저장되어 있는 학생들의 학점이 모두 부여되어 있는지)
         #예외사항이 아닌 경우 3번 함수 호출
+        try:
+            num = len(studentslist)
+            if num==0:
+                raise IndexError
+            else:
+                for i in range(num):
+                    if len(studentslist[i]) !=4:
+                        raise ValueError
+        except ValueError:
+            print("There is a student who didn't get grade.")
+        except IndexError:
+                print("No student data!") 
+        else:
+            Menu3()
 
     elif choice == "4" :
         #예외사항 처리(저장된 학생 정보의 유무)

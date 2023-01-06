@@ -20,6 +20,14 @@ def Menu2() :
         print("지금 수정한 학생 정보")
         print(studentslist[i])
 
+def Menu3() :
+    #출력 코딩
+    print("-------------------------------------------------------------")
+    print("name\tmid\tfinal\tgrade")
+    print("-------------------------------------------------------------")
+
+    for student in studentslist:
+            print("{0}\t{1}\t{2}\t{3}".format(student[0],student[1],student[2],student[3]))
 
 while True :
     choice = input("Choose menu 1, 2, 3, 4, 5 : ")
@@ -55,5 +63,22 @@ while True :
         else:
             Menu2()
             print("Grading to all students")
+    elif choice=="3":
+        try:
+            num = len(studentslist)
+            if num==0:
+                raise IndexError
+            else:
+                for i in range(num):
+                    if len(studentslist[i]) !=4:
+                        raise ValueError
+        except ValueError:
+            print("There is a student who didn't get grade.")
+        except IndexError:
+                print("No student data!") 
+        else:
+            Menu3()
+
+
     else:
         break
