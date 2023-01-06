@@ -12,15 +12,22 @@ def playerInput():
         except ValueError:
             print("정수를 입력하세요.")
         except IndexError:
-            print("1,2,3 중 하나를 입력하세요") 
+            print("1,2,3 중 하나를 입력하세요")
 
-while True:
+while count<31:
     inputA=playerInput()
     for i in range(inputA):
         print("playerA : {}".format(count+1))
         count+=1
+        if count==31:
+            print("playerB win!")
+            break
+    if count>=31:
+        break
     inputB=playerInput()
     for i in range(inputB):
         print("playerB : {}".format(count+1))
-        count+=1    
-    print(count)
+        count+=1 
+        if count==31:
+            print("playerA win!")
+            break        
