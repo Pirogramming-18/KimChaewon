@@ -78,7 +78,11 @@ while True :
                 print("No student data!") 
         else:
             Menu3()
-
-
+    elif choice == "4" :
+        name = input("Enter the name to delet: ")
+        for number in range(len(studentslist)):
+            if studentslist[number][0] == name:
+                print(studentslist[number][0])  
+                break       
     else:
         break

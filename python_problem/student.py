@@ -34,8 +34,9 @@ def Menu3() :
 
 
 ##############  menu 4
-def Menu4():
+def Menu4(number):
     #학생 정보 삭제하는 코딩
+    del studentslist[number]
 
 
 #학생 정보를 저장할 변수 초기화
@@ -54,7 +55,7 @@ while True :
         #예외사항이 아닌 입력인 경우 1번 함수 호출 
         try:
             student =list(input("Enter name mid-score final score:").split())
-            if len(list)>4:
+            if len(student)!=3:
                 raise IndexError
             for i in range(len(studentslist)):
                 if studentslist[i][0]==student[0]:
@@ -105,6 +106,28 @@ while True :
         #예외사항이 아닌 경우, 삭제할 학생 이름 입력 받기
         #입력 받은 학생의 존재 유무 체크 후, 없으면 "Not exist name!" 출력
         #있으면(예를 들어 kim 이라 하면), 4번 함수 호출 후에 "kim student information is deleted." 출력
+
+        try:
+            temp=0
+            name = input("Enter the name to delet: ")
+            num = len(studentslist)
+            if num==0:
+                raise IndexError
+            else:
+                for number in range(num):
+                    if studentslist[number][0] == name:         
+                        break
+                    else:
+                        temp+=1
+                if temp==num:
+                    raise ValueError
+        except ValueError:
+            print("Not exist name!")
+        except IndexError:
+                print("No student data!") 
+        else:
+            Menu4(number)
+            print("{} student information is deleted.".format(name))
 
     elif choice == "5" :
         #프로그램 종료 메세지 출력
