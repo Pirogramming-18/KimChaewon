@@ -1,6 +1,7 @@
 import math
 
 num = 0
+count=0
 
 while True:
     try:
@@ -12,4 +13,7 @@ while True:
     except IndexError:
         print("1,2,3 중 하나를 입력하세요") 
     
-print(num)
+    for i in range(0,num):
+        print("playerA : {}".format(count+1))
+        count+=1
+    print(count)
