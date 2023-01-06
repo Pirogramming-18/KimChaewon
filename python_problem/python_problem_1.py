@@ -1,7 +1,6 @@
-import math
-
 num = 0
 count=0
+
 def playerInput():
     while True:
         try:
@@ -14,21 +13,21 @@ def playerInput():
         except IndexError:
             print("1,2,3 중 하나를 입력하세요")
 
-while count<31:
-    inputA=playerInput()
-    for i in range(inputA):
-        print("playerA : {}".format(count+1))
-        count+=1
-        if count==31:
-            print("playerB win!")
+def brGame(player,outher):
+    a=count
+    input=playerInput()
+    for i in range(input):
+        print("{0} : {1}".format(player,(a+1)))
+        a+=1
+        if a==31:
+            print(outher," win!")
             break
+    return a
+
+while count<31:
+    count=brGame("playerA","playerB")
     if count>=31:
         break
-    inputB=playerInput()
-    for i in range(inputB):
-        print("playerB : {}".format(count+1))
-        count+=1 
-        
-        if count==31:
-            print("playerA win!")
-            break        
+    count=brGame("playerB","playerA")
+    if count>=31:
+        break
