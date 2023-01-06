@@ -99,9 +99,9 @@ function deleteItem() {
       continue;
     }
   }
-  console.log(removelist.length);
+  console.log(removelist.length );
 
-  for (let k = 0; k < removelist.length; k++) {
+  for (let j = 0; j < each_list.length ; j++) {
     let temp = 0;
     temp = each_list[removelist[k]].parentElement;
     console.log(temp);
