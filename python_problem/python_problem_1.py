@@ -28,6 +28,7 @@ while count<31:
     for i in range(inputB):
         print("playerB : {}".format(count+1))
         count+=1 
+        
         if count==31:
             print("playerA win!")
             break        
