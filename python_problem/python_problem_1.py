@@ -1,3 +1,4 @@
+import random
 num = 0
 count=0
 
@@ -13,10 +14,10 @@ def playerInput():
         except IndexError:
             print("1,2,3 중 하나를 입력하세요")
 
-def brGame(player,outher):
+
+def brGame(player,outher,inputs):
     a=count
-    input=playerInput()
-    for i in range(input):
+    for i in range(inputs):
         print("{0} : {1}".format(player,(a+1)))
         a+=1
         if a==31:
@@ -25,9 +26,11 @@ def brGame(player,outher):
     return a
 
 while count<31:
-    count=brGame("playerA","playerB")
+    inputs=playerInput()
+    count=brGame("player","computer",inputs)
     if count>=31:
         break
-    count=brGame("playerB","playerA")
+    inputs=random.randrange(1,4)
+    count=brGame("computer","player",inputs)
     if count>=31:
         break
