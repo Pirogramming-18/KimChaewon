@@ -8,7 +8,11 @@ def index(request):
     return HttpResponse("Hello,world. reviews인덱스")
 
 def detail(request, movie_id):
-    return HttpResponse("You're looking at question %s." % movie_id)
+    template = loader.get_template('reviews/detail.html')
+    context = {
+        'movie_id': movie_id,
+    }
+    return HttpResponse(template.render(context, request))
 
 def results(request, movie_id):
     response = "You're looking at the results of question %s."
@@ -22,10 +26,11 @@ def index(request):
     output = ', '.join([Movie for m in latest_movie_list])
     return HttpResponse(output)
 
-def index(request):
+def index(request,):
     latest_movie_list = Movie.objects.order_by('-nameMv')[:5]
     template = loader.get_template('reviews/index.html')
     context = {
         'latest_movie_list': latest_movie_list,
     }
     return HttpResponse(template.render(context, request))
+
