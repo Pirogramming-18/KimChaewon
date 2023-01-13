@@ -11,6 +11,10 @@
 </head>
 
 <body>
+    <button id="bt" onclick="goWrite()"
+        style="background-color: gainsboro; padding: 0.3rem; border: 1px solid grey; margin: 1rem;">리뷰
+        작성</button>
+
     {% if latest_movie_list %}
     <ul>
         {% for movie in latest_movie_list %}
@@ -22,9 +26,17 @@
         </li>
         {% endfor %}
     </ul>
+
     {% else %}
     <p>No polls are available.</p>
     {% endif %}
+    <script>
+        function goWrite() {
+            location.href = "/reviews/write"
+        }
+    </script>
 </body>
+
+
 
 </html>

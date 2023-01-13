@@ -14,9 +14,9 @@ def detail(request, movie_id):
     }
     return HttpResponse(template.render(context, request))
 
-def results(request, movie_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % movie_id)
+def write(request,):
+    response = "writepage"
+    return HttpResponse(response)
 
 def vote(request, movie_id):
     return HttpResponse("You're voting on question %s." % movie_id)
