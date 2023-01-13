@@ -1,0 +1,19 @@
+@import "reset.css";
+
+.box {
+  border: 1px solid gray;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.name,
+.date,
+.genre,
+.grade {
+  margin-bottom: 0.3rem;
+}
+
+.name {
+  font-size: large;
+  font-weight: 700;
+}

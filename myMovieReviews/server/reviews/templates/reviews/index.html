@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>홈 화면</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'reviews/style.css' %}">
+</head>
+
+<body>
+    {% if latest_movie_list %}
+    <ul>
+        {% for movie in latest_movie_list %}
+        <li class="box">
+            <div class="name" <a href="/reviews/{{ movie.id }}/">{{ movie.nameMv }}</a></div>
+            <div class="date">개봉일 : <a href="/reviews/{{ movie.id }}/">{{ movie.yearsMv }}</a></div>
+            <div class="genre">장르 : <a href="/reviews/{{ movie.id }}/">{{ movie.genreMv }}</a></div>
+            <div class="grade">평점 : <a href="/reviews/{{ movie.id }}/">{{ movie.gradeMv }}</a>점</div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No polls are available.</p>
+    {% endif %}
+</body>
+
+</html>
