@@ -37,8 +37,15 @@
         <input name="title" placeholder="아이디어 명:" value="{{post.title}}" />
         <br />
         Image:
-        <input type="file" name="photo" />
-        <br />
+        {% if post.image %}
+        <p>
+            현재 이미지 : {{ post.image.url }}
+        </p>
+        <input type="file" name="image" />
+        {% else %}
+        <input type="file" name="image" />
+        {% endif %}
+
         아이디어 설명:
         <textarea name="content" placeholder="게시글 내용">{{post.content}}</textarea>
         <br />
@@ -49,7 +56,7 @@
         <select name="devtool" id="devtool">
             <option value="" selected>{{ post.devtool.name }}</option>
             {% for devtool in devtools %}
-            {% if devtool.name != idea.devtool.name %}
+            {% if devtool.name != post.devtool.name %}
             <option value="{{ devtool.id }}" name="devtool">{{ devtool.name }}</option>
             {% endif %}
             {% endfor %}

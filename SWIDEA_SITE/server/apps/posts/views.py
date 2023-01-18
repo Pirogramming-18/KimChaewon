@@ -53,19 +53,22 @@ def i_create(request):
 def i_update(request:HttpRequest, pk, *args, **kwargs):
     post = Post.objects.get(id=pk)
     devtools = ToolList.objects.all()
-    context={
-        "post":post,
-        'devtools' : devtools,        
-    }
+    
     if request.method == "POST":
-        devtool_id = request.POST["devtool"]
+        devtool=request.GET.get("devtool.id")
+        devtool_id = request.POST.get("devtool")
         post.title=request.POST["title"]
         post.devtool=ToolList.objects.get(id=devtool_id),
         post.interest=request.POST["interest"]
         post.content=request.POST["content"]
-        post.image=request.FILES.get("image")
+        if devtool_id:
+            post.image=request.FILES.get("image")
         post.save()
         return redirect(f"/posts/{post.id}")
+    context={
+        "post":post,
+        'devtools' : devtools,        
+    }
     return render(request, "posts/i_update.html", context=context)
 
 def i_delete(request:HttpRequest, pk, *args, **kwargs):
