@@ -1,0 +1,52 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container-fluid > a {
+  font-weight: bold;
+}
+
+button {
+  border: 0;
+  border-radius: 0;
+  border-style: none;
+  border: 1px solid gray;
+  border-radius: 50px;
+}
+
+html {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  position: relative;
+  max-width: 100%;
+  height: 80%;
+  background-color: white;
+  margin: 0 auto;
+}
+
+.title-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 2rem 2rem;
+}
+
+form {
+  height: 80%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+form > div {
+  align-self: flex-end;
+  margin: 1rem;
+}

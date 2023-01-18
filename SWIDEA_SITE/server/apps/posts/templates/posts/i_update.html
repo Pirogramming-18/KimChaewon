@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>아이디어 수정 페이지</title>
+    <link rel="stylesheet" href="{% static 'css/update.css'%}" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <header><!-- 네비게이션바 -->
+        <nav class="navbar navbar-expand-lg bg-light fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{% url 'posts:list' %}">My SW Idae Manage</a>
+                <a class="nav-link active text-black small" href="{%url 'posts:create' %}">아이디어 등록</a>
+                <a class="nav-link active text-black small" href="{% url 'posts:list' %}">아이디어 관리</a>
+                <a class="nav-link active text-black small" href="#">개발 툴 등록</a>
+                <a class="nav-link active text-black small" href="#">개발 툴 관리</a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="title-box">
+        <h1 class="title">Idea Detail Update</h1>
+        아이디어 세부내용 수정 페이지입니다. 아이디어를 구체화 하거나 내용을 변경해 보세요.
+    </div>
+
+    <form action="{% url 'posts:update' post.pk%}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        아이디어 명:
+        <input name="title" placeholder="아이디어 명:" value="{{post.title}}" />
+        <br />
+        Image:
+        <input type="file" name="photo" />
+        <br />
+        아이디어 설명:
+        <textarea name="content" placeholder="게시글 내용">{{post.content}}</textarea>
+        <br />
+        아이디어 관심도:
+        <input name="interest" placeholder="관심도" type="number" value="{{post.interest}}" />
+        <br />
+        예상 개발 툴:
+        <select name="devtool" id="devtool">
+            {% for tool in tool_list %}
+            <option value="{{tool.0}}">{{tool.1}}</option>
+            {% endfor %}
+        </select>
+        <div>
+            <input type="submit" , value="SUBMIT" />
+        </div>
+    </form>
+</body>
+
+</html>
