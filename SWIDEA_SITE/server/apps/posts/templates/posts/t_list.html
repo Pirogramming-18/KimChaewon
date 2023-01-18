@@ -31,13 +31,15 @@
         <h1 class="title">DevTool List</h1>
         개발툴 목록 페이지 입니다. 자신이 사용가능한 개발들의 목록을 확인해 보세요.
     </div>
+
     {% if tool_list%}
     <section class="tool-list">
         {% for tool in tool_list %}
         <article>
             <p><a href="{% url 'posts:t_detail' tool.pk%}">{{tool.name}}</a></p>
-            <div>{{tool.kind}}</div>
-            <div>{{tool.content}}</div>
+            <div class="kind">{{tool.kind}}</div>
+            <div class="content">{{tool.content}}</div>
+
 
         </article>
         <hr />
