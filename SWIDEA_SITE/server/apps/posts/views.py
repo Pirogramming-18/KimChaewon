@@ -6,7 +6,6 @@ def i_list(request:HttpRequest,*args, **kwargs):
     
     sort_option = request.GET.get('sort')
     print(sort_option)
-
     if sort_option:
         if sort_option=='byname':
             post_list=Post.objects.order_by('title')
@@ -34,33 +33,34 @@ def i_detail(request:HttpRequest,pk,*args, **kwargs):
     return render(request, "posts/i_detail.html", context=context)
 
 def i_create(request):
-    tool_list=Post.TOOL_CHOICE
-    context={
-        "tool_list":tool_list,
-    }
+    devtools = ToolList.objects.all()
     if request.method == "POST":
-        
+        devtool_id = request.POST["devtool"]        
         Post.objects.create(
             title=request.POST["title"],
-            devtool=request.POST["devtool"],
+            devtool=ToolList.objects.get(id=devtool_id),
             interest=request.POST["interest"],
             content=request.POST["content"],
             image=request.FILES["image"],
         )
         return redirect("/")
+    context={
+        "devtools": devtools,
+    }
     return render(request, "posts/i_create.html",context=context)
 
 
 def i_update(request:HttpRequest, pk, *args, **kwargs):
     post = Post.objects.get(id=pk)
-    tool_list=Post.TOOL_CHOICE
+    devtools = ToolList.objects.all()
     context={
         "post":post,
-        "tool_list":tool_list,
+        'devtools' : devtools,        
     }
     if request.method == "POST":
+        devtool_id = request.POST["devtool"]
         post.title=request.POST["title"]
-        post.devtool=request.POST["devtool"]
+        post.devtool=ToolList.objects.get(id=devtool_id),
         post.interest=request.POST["interest"]
         post.content=request.POST["content"]
         post.image=request.FILES.get("image")

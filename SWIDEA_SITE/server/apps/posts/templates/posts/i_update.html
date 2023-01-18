@@ -47,8 +47,11 @@
         <br />
         예상 개발 툴:
         <select name="devtool" id="devtool">
-            {% for tool in tool_list %}
-            <option value="{{tool.0}}">{{tool.1}}</option>
+            <option value="" selected>{{ post.devtool.name }}</option>
+            {% for devtool in devtools %}
+            {% if devtool.name != idea.devtool.name %}
+            <option value="{{ devtool.id }}" name="devtool">{{ devtool.name }}</option>
+            {% endif %}
             {% endfor %}
         </select>
         <div>

@@ -51,9 +51,8 @@
             </P>
             <div>
                 <p><a href="{% url 'posts:detail' post.pk%}">{{post.title}}</a></p>
-                <div>예상개발 툴 : <a href="{% url 'posts:t_list'%}">{{post.devtool}}</a></div>
+                <div>예상개발 툴 : <a href="{% url 'posts:t_detail' post.devtool.id%}">{{post.devtool.name}}</a></div>
                 <div>아이디어 관심도 : {{post.interest}}</div>
-
             </div>
         </article>
         <hr />
