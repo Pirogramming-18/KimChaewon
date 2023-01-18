@@ -19,8 +19,9 @@
                 <a class="navbar-brand" href="{% url 'posts:list' %}">My SW Idae Manage</a>
                 <a class="nav-link active text-black small" href="{%url 'posts:create' %}">아이디어 등록</a>
                 <a class="nav-link active text-black small" href="{% url 'posts:list' %}">아이디어 관리</a>
-                <a class="nav-link active text-black small" href="#">개발 툴 등록</a>
-                <a class="nav-link active text-black small" href="#">개발 툴 관리</a>
+                <a class="nav-link active text-black small" href="{%url 'posts:t_create' %}">개발 툴 등록</a>
+                <a class="nav-link active text-black small" href="{% url 'posts:t_list' %}">개발 툴 관리</a>
+
             </div>
         </nav>
     </header>

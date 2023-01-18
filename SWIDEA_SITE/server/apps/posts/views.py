@@ -88,3 +88,32 @@ def t_detail(request:HttpRequest,pk,*args, **kwargs):
         "tool": tool,
     }
     return render(request, "posts/t_detail.html", context=context)
+
+def t_delete(request:HttpRequest, pk, *args, **kwargs):
+    if request.method == "POST":
+        tool = ToolList.objects.get(id=pk)
+        tool.delete()
+    return redirect("/posts/tool")
+
+def t_create(request):
+    if request.method == "POST":
+        ToolList.objects.create(
+        name=request.POST["name"],
+        kind=request.POST["kind"],
+        content=request.POST["content"],
+        )
+        return redirect("/posts/tool")
+    return render(request, "posts/t_create.html")
+
+def t_update(request:HttpRequest, pk, *args, **kwargs):
+    tool = ToolList.objects.get(id=pk)
+    context={
+        "tool":tool,
+    }
+    if request.method == "POST":
+        tool.name=request.POST["name"]
+        tool.kind=request.POST["kind"]
+        tool.content=request.POST["content"]
+        tool.save()
+        return redirect(f"/posts/tool/{tool.id}")
+    return render(request, "posts/t_update.html", context=context)
