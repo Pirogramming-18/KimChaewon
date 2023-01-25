@@ -7,10 +7,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="_csrf" th:content="${_csrf.token}">
+    <meta name="_csrf_header" th:content="${_csrf.headerName}">
     <title>Pirostargram</title>
     <link rel="stylesheet" href="{% static 'css/main.css'%}" />
-    <script src="https://kit.fontawesome.com/6fbcf91afd.js" crossorigin="anonymous"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
 
 <body>
@@ -30,6 +31,22 @@
                 </div>
                 <div class="card-title">{{ post.title }}</div>
                 <div class="card-text">{{ post.content}}</div>
+            </div>
+            <div class="replyform">
+                <input class="replyContent" placeholder="댓글 입력"></input>
+                <button onclick="onClickPost({{post.id}})">게시</button>
+            </div>
+            <div class="reply">
+                {%for reply in replys%}
+                {%if reply.bord.id == post.id %}
+                <div class="reply-id-{{reply.id}}">
+                    <div>
+                        {{reply.member}} | {{ reply.content }}
+                    </div>
+                    <button onclick="onClickDelete({{reply.id}})">삭제하기</button>
+                </div>
+                {%endif%}
+                {% endfor %}
             </div>
         </div>
         </br>
@@ -62,6 +79,76 @@
                 const count = Number(num) + 1;
 
                 element.innerHTML = `${buttonType} ${count}`; // Like 1
+            }
+        }
+    };
+
+    const requestPost = new XMLHttpRequest();
+
+    const onClickPost = (id) => {
+        const url = "/reply/";
+        const element = document.querySelector('.replyContent');
+        let comment = element.value;
+        element.value = "";
+        requestPost.open("POST", url, true);
+        requestPost.setRequestHeader(
+            "Content-Type",
+            "application/x-www-form-urlencoded"
+        );
+        requestPost.send(JSON.stringify({ id: id, comment: comment })); //{id:1,type:"Like"} 이렇게 감( js형태 ) -> JSON.stringify를 사용해 json형태로 변환시킴 시킴시킴 
+    };
+
+    requestPost.onreadystatechange = () => {
+        if (requestPost.readyState === XMLHttpRequest.DONE) {
+            if (requestPost.status < 400) {
+                const { content, id } = JSON.parse(requestPost.response);
+                const element = document.querySelector('.replyContent');
+                console.log(element)
+                element.innerHTML += `<div class="reply-id-${id}">
+                    <div>
+                        member | ${content}
+                    </div>
+                    <button onclick="onClickDelete(${id})">삭제하기</button>
+                </div>`;
+            }
+        }
+    };
+
+    // requestLike.onreadystatechange = () => {
+    //     if (requestLike.readyState === XMLHttpRequest.DONE) {
+    //         if (requestLike.status < 400) {
+    //             const { id, type } = JSON.parse(requestLike.response); //{id:1, type:'like'}
+    //             const element = document.querySelector(`.post-id-${id} .post__${type}`);
+    //             const originHTML = element.innerHTML; // Like 0
+    //             const [buttonType, num] = strip(originHTML).split(" "); //["Like", "0"];
+    //             const count = Number(num) + 1;
+
+    //             element.innerHTML = `${buttonType} ${count}`; // Like 1
+    //         }
+    //     }
+    // };
+
+
+
+    const requestDelete = new XMLHttpRequest();
+
+    const onClickDelete = (id) => {
+        const url = "/reply_del/";
+        requestDelete.open("POST", url, true);
+        requestDelete.setRequestHeader(
+            "Content-Type",
+            "applcation/x-www-form-urlencoded"
+        );
+        requestDelete.send(JSON.stringify({ id: id }));
+    };
+
+    requestDelete.onreadystatechange = () => {
+        if (requestDelete.readyState === XMLHttpRequest.DONE) {
+            if (requestDelete.status < 400) {
+                const { id } = JSON.parse(requestDelete.response);
+
+                const element = document.querySelector(`.reply-id-${id}`);
+                element.remove();
             }
         }
     };
